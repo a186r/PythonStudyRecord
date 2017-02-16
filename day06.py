@@ -36,24 +36,24 @@
 # 不断筛下去，就可以得到所有的素数。
 # 用Python来实现这个算法，可以先构造一个从3开始的奇数序列：
 
-def _odd_iter(): # 注意这是一个生成器，并且是一个无限序列。
-    n = 1
-    while True:
-        n = n+2
-        yield n
+# def _odd_iter(): # 注意这是一个生成器，并且是一个无限序列。
+#     n = 1
+#     while True:
+#         n = n+2
+#         yield n
 
 # 然后定义一个筛选函数：
-def _not_divisible(n):
-    return lambda x:x%n>0
+# def _not_divisible(n):
+#     return lambda x:x%n>0
 
 # 最后，定义一个生成器，不断返回下一个素数：
-def primes():
-    yield 2
-    it = _odd_iter() # 初始序列
-    while True:
-        n = next(it) # 返回序列的第一个数
-        yield n
-        it = filter(_not_divisible,it) # 构造新数列
+# def primes():
+#     yield 2
+#     it = _odd_iter() # 初始序列
+#     while True:
+#         n = next(it) # 返回序列的第一个数
+#         yield n
+#         it = filter(_not_divisible,it) # 构造新数列
 
 # 这个生成器先返回第一个素数2，然后，利用filter()不断产生筛选后的新的序列。
 
@@ -69,3 +69,4 @@ def primes():
 # print(len(l))
 
 # 回数是指从左向右读和从右向左读都是一样的数，例如12321，909。请利用filter()滤掉非回数：
+

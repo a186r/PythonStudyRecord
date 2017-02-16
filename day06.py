@@ -68,5 +68,56 @@
 
 # print(len(l))
 
-# 回数是指从左向右读和从右向左读都是一样的数，例如12321，909。请利用filter()滤掉非回数：
+# TODO 回数是指从左向右读和从右向左读都是一样的数，例如12321，909。请利用filter()滤掉非回数：
 
+
+# 首先你要理解埃氏筛法的原理，其实是很简单的。
+#
+# 然后用惰性序列实现埃氏筛法时，只能想象抽象过程，不能推导每一步计算机是怎么算的，就像神经网络模拟的人工智能算法，连设计者也无法理解计算机执行的步骤。
+
+# 排序算法 Python内置的sorted()函数就可以对list进行排序
+# l = [1,23456,643,324,6,3,66,37,327,8,0]
+# print(sorted(l))
+
+# 此外，sorted()函数也是一个高阶函数，它还可以接收一个key函数来实现自定义的排序，例如按绝对值大小排序：
+# l = [1,-6,0,328,2,-40,-8,-67,-54]
+# print(sorted(l,key = abs))
+
+# key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。对比原始的list和经过key=abs处理过的list
+# 然后sorted()函数按照keys进行排序，并按照对应关系返回list相应的元素
+
+# 默认情况下会根据首字母的ASCII码排序
+# s = ['asbg','tr','erfv','Zweq','oiiy','Qwb','mcoi','qowiyt']
+# print(sorted(s))
+# 由于'Z' < 'a'，结果，大写字母Z会排在小写字母a的前面
+
+# 现在我们需要忽略大小写，只需要传入一个key作为规则就可以
+# s = ['asbg','tr','erfv','Zweq','oiiy','Qwb','mcoi','qowiyt']
+# print(sorted(s,key = str.lower))
+
+# 要该用反向排序，不用改动key，只需要再传入一个reverse = True即可
+# s = ['asbg', 'tr', 'erfv', 'Zweq', 'oiiy', 'Qwb', 'mcoi', 'qowiyt']
+# print(sorted(s, key=str.lower, reverse=True))  # 忽略大小写并且倒序
+
+# sorted()也是一个高阶函数。用sorted()排序的关键在于实现一个映射函数。
+
+# TODO 假设我们用一组tuple表示学生名字和成绩：L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)] 请用sorted()对上述列表分别按名字排序
+
+# from operator import itemgetter
+#
+# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+#
+#
+# def _by_name(t):  # 根据名字排序
+#     return t[0]
+#
+#
+# def _by_score(t):  # 根据成绩排序
+#     return t[1]
+#
+#
+# print(sorted(L, key=itemgetter(0)))  # 根据名字排序
+# print(sorted(L, key=lambda t: t[1]))  # 根据成绩排序
+# print(sorted(L, key=itemgetter(0), reverse=True))  # 根据名字倒序
+# print(sorted(L,key = _by_name))
+# print(sorted(L,key = _by_score))

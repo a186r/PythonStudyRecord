@@ -2,10 +2,10 @@
 # for key in d:
 # for value in d.values():
 # for k,v in d.items():
-    # print(value)
+# print(value)
 
 # for ch in 'ACAFCSVABDGYFTYC':# 迭代字符串
-    # print(ch)
+# print(ch)
 
 # 所以，当我们使用for循环时，只要作用于一个可迭代对象，for循环就可以正常运行，而我们不太关心该对象究竟是list还是其他数据类型。
 # 那么，如何判断一个对象是可迭代对象呢？方法是通过collections模块的Iterable类型判断：
@@ -78,4 +78,3 @@
 #     if isinstance(x,str):
 #         L2.append(x.lower())
 # print(L2)
-        

@@ -31,4 +31,3 @@ print(now())
 
 # 把@log放在now函数的定义处，相当于执行了语句
 now = log(now)
-

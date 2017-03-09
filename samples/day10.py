@@ -35,3 +35,33 @@ if __name__ == '__main__':
 # Hello, world!
 # $ python hello.py Michael
 # Hello, Michael!
+
+# 作用域 在一个模块中，我们可能会定义很多函数和变量，但有的函数和变量我们希望给别人使用，
+# 有的函数和变量我们希望仅仅在模块内部使用。在Python中，是通过_前缀来实现的
+
+def _private_1(name):
+    return 'Hello ,%s' % name
+
+
+def _private_2(name):
+    return 'Hi ,%s' % name
+
+
+def greeting(name):
+    if len(name) > 3:
+        return _private_1(name)
+    else:
+        return _private_2(name)
+
+
+        # 我们在模块里公开greeting()函数，而把内部逻辑用private函数隐藏起来了，这样，
+        # 调用greeting()函数不用关心内部的private函数细节，这也是一种非常有用的代码封装和抽象的方法，即：
+        # 外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public。
+
+
+        # 安装第三方模块
+        # 一般来说，第三方库都会在Python官方的pypi.python.org网站注册，要安装一个第三方库，必须先知道该库的名称
+        # ，可以在官网或者pypi上搜索，比如Pillow的名称叫Pillow，因此，安装Pillow的命令就是：
+        #       pip3 install Pillow
+
+        # Pillow是一个图片处理的库
